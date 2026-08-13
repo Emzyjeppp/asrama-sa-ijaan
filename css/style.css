@@ -530,19 +530,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   margin-bottom: 20px;
 }
 
-.schedule-table { width: 100%; border-collapse: collapse; }
-.schedule-table td {
-  padding: 12px 8px;
-  border-bottom: 1px solid var(--color-bg-alt);
-  font-size: 0.95rem;
-}
-.schedule-table td:first-child {
-  font-weight: 700;
-  color: var(--color-accent);
-  width: 90px;
-}
-.schedule-table tr:last-child td { border-bottom: none; }
-
 .extra-list li {
   display: flex;
   align-items: center;

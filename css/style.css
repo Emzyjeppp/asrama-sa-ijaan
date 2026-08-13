@@ -509,6 +509,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-radius: 4px;
 }
 
+.amenities-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
 /* ============ PROGRAM ============ */
 .program-grid {
   display: grid;
@@ -545,6 +552,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-bottom: 1px solid var(--color-bg-alt);
   font-size: 0.95rem;
 }
+
+.activity-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--color-accent);
+  transition: color 0.2s var(--ease-standard);
+}
+.activity-link:hover { color: var(--color-primary-light); }
 .extra-list li:last-child { border-bottom: none; }
 .extra-icon {
   display: inline-flex;
@@ -749,6 +764,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .contact-grid { grid-template-columns: 1fr; }
   .testimoni-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .amenities-grid { grid-template-columns: repeat(2, 1fr); }
 
   .hero-content { grid-template-columns: 1fr; gap: 32px; text-align: center; }
   .hero-text { max-width: 100%; }
@@ -790,6 +806,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .nav-cta { align-self: flex-start; }
 
   .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+  .amenities-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -530,6 +530,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   margin-bottom: 20px;
 }
 
+.activity-note {
+  margin-top: -12px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
 .extra-list li {
   display: flex;
   align-items: center;

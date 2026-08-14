@@ -1018,6 +1018,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   text-align: center;
 }
 
+.form-privacy {
+  margin-top: 8px;
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  opacity: 0.8;
+}
+
 /* ============ FOOTER ============ */
 .footer {
   background: var(--color-primary);

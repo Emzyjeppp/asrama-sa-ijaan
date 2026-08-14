@@ -908,7 +908,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 21 / 9;
+  margin-bottom: 40px;
 }
 
 .map-embed iframe {
@@ -920,7 +921,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @media (max-width: 640px) {
   .section { padding: 56px 0; }
-  .map-embed { aspect-ratio: 4 / 3; }
+  .map-embed { aspect-ratio: 16 / 9; }
   .campus-list li { flex-direction: column; align-items: flex-start; gap: 4px; }
   .campus-dist { text-align: left; }
 }

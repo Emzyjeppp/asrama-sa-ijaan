@@ -149,5 +149,25 @@ lightbox.querySelectorAll('[data-lightbox-close]').forEach((el) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+  if (lightbox.hidden) return;
+
+  if (e.key === 'Escape') {
+    closeLightbox();
+    return;
+  }
+
+  if (e.key === 'Tab') {
+    const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 });

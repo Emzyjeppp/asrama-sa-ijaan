@@ -811,10 +811,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .campus-list { display: flex; flex-direction: column; }
 .campus-list li {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid rgba(122, 18, 32, 0.12);
   font-size: 0.95rem;
@@ -822,6 +822,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .campus-list li:last-child { border-bottom: none; }
 .campus-name { font-weight: 600; color: var(--color-text); }
 .campus-dist { color: var(--color-text-muted); font-size: 0.88rem; text-align: right; flex-shrink: 0; }
+
+.campus-logo,
+.campus-logo-ph {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.campus-logo { object-fit: contain; background: var(--color-white); box-shadow: var(--shadow-sm); }
+.campus-logo-ph { background: var(--color-bg); color: var(--color-primary-light); }
+.campus-logo-ph svg { width: 18px; height: 18px; }
 
 .campus-note {
   margin-top: 16px;
@@ -934,8 +947,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 640px) {
   .section { padding: 56px 0; }
   .map-embed { aspect-ratio: 16 / 9; }
-  .campus-list li { flex-direction: column; align-items: flex-start; gap: 4px; }
-  .campus-dist { text-align: left; }
+  .campus-list li {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "logo name" "logo dist";
+    gap: 4px 12px;
+  }
+  .campus-logo, .campus-logo-ph { grid-area: logo; align-self: start; }
+  .campus-name { grid-area: name; }
+  .campus-dist { grid-area: dist; text-align: left; }
 }
 
 .info-item { display: flex; gap: 16px; align-items: flex-start; }

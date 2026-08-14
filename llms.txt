@@ -14,4 +14,4 @@
 
 ## Halaman
 
-- [Beranda](/index.html): berisi Tentang Kami (sejarah, visi, misi, makna Sa-Ijaan), Struktur Pengurus, Fasilitas, Program & Kegiatan, Galeri, Testimoni, Tata Tertib, serta Kontak & Pendaftaran (termasuk jarak ke kampus-kampus sekitar).
+- [Beranda](/index.html): berisi Tentang Kami (sejarah, visi, misi, makna Sa-Ijaan), Struktur Pengurus, Fasilitas, Program & Kegiatan, Galeri, Testimoni, serta Kontak & Pendaftaran (termasuk jarak ke kampus-kampus sekitar).

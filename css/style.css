@@ -783,54 +783,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .requirements-grid { margin-bottom: 56px; }
 
-/* ============ TATA TERTIB ============ */
-.rules-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.rules-item {
-  background: var(--color-white);
-  border-radius: var(--radius);
-  padding: 18px 24px;
-  box-shadow: var(--shadow-sm);
-}
-
-.rules-item summary {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--color-primary);
-  font-size: 1.02rem;
-}
-.rules-item summary::-webkit-details-marker { display: none; }
-.rules-item summary::after {
-  content: "+";
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: var(--color-accent);
-  transition: transform 0.2s var(--ease-standard);
-}
-.rules-item[open] summary::after { transform: rotate(45deg); }
-
-.rules-item .extra-list { margin-top: 14px; }
-.rules-item .extra-list li { padding-left: 2px; }
-
-.rules-note {
-  margin-top: 24px;
-  padding: 16px 20px;
-  background: var(--color-bg-alt);
-  border-radius: 12px;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-.rules-note strong { color: var(--color-primary); }
-
 /* ============ JARAK KAMPUS ============ */
 .campus-distance {
   background: var(--color-bg-alt);

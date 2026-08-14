@@ -18,7 +18,7 @@ navLinks.querySelectorAll('a').forEach((link) => {
 
 // ===== Scroll reveal =====
 const revealTargets = document.querySelectorAll(
-  '.about-card, .org-node, .gallery-item, .ig-tile, .schedule-card, .extracurricular-card, .testimoni-card, .rules-item, .contact-info, .contact-form'
+  '.about-card, .org-node, .gallery-item, .ig-tile, .schedule-card, .extracurricular-card, .testimoni-card, .contact-info, .contact-form'
 );
 revealTargets.forEach((el) => el.classList.add('reveal'));
 

@@ -91,3 +91,57 @@ toggleBackToTop();
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// ===== Gallery lightbox =====
+const lightbox = document.getElementById('lightbox');
+const lightboxMedia = document.getElementById('lightboxMedia');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxDesc = document.getElementById('lightboxDesc');
+let lastFocusedTrigger = null;
+
+function openLightbox(trigger) {
+  const title = trigger.dataset.title || '';
+  const desc = trigger.dataset.desc || '';
+  const img = trigger.dataset.img;
+  const placeholderClass = trigger.dataset.placeholder;
+
+  lightboxTitle.textContent = title;
+  lightboxDesc.textContent = desc;
+
+  if (img) {
+    lightboxMedia.innerHTML = `<img src="${img}" alt="${title}">`;
+  } else if (placeholderClass) {
+    lightboxMedia.innerHTML = `<div class="ph-photo ${placeholderClass}"><span>${title}</span></div>`;
+  } else {
+    lightboxMedia.innerHTML = '';
+  }
+
+  lastFocusedTrigger = trigger;
+  lightbox.hidden = false;
+  document.body.style.overflow = 'hidden';
+  lightbox.querySelector('.lightbox-close').focus();
+}
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  document.body.style.overflow = '';
+  if (lastFocusedTrigger) lastFocusedTrigger.focus();
+}
+
+document.querySelectorAll('.gallery-item').forEach((item) => {
+  item.addEventListener('click', () => openLightbox(item));
+  item.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLightbox(item);
+    }
+  });
+});
+
+lightbox.querySelectorAll('[data-lightbox-close]').forEach((el) => {
+  el.addEventListener('click', closeLightbox);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+});

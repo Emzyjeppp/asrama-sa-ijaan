@@ -221,32 +221,44 @@
     <p class="section-lead">Setiap sudut Asrama Sa-Ijaan dirancang untuk mendukung kenyamanan, keamanan, dan produktivitas mahasiswa selama menempuh pendidikan di Yogyakarta.</p>
 
     <div class="gallery-grid">
-      <figure class="gallery-item">
+      <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
+        data-title="Kamar Tidur" data-img="assets/kamar-tidur.jpg"
+        data-desc="19 kamar tidur, masing-masing untuk 1 orang, ditambah 1 kamar tamu. Koridor kamar ada di lantai atas, terhubung langsung ke tangga menuju aula dan ruang bersama di lantai bawah.">
         <img src="assets/kamar-tidur.jpg" alt="Koridor kamar tidur Asrama Sa-Ijaan" loading="lazy">
         <figcaption>Kamar Tidur</figcaption>
       </figure>
-      <figure class="gallery-item">
+      <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
+        data-title="Ruang Belajar Bersama" data-img="assets/ruang-belajar.jpg"
+        data-desc="Ruang santai dengan sofa, meja komputer, dan Smart TV. Dipakai penghuni untuk mengerjakan tugas kuliah bersama atau sekadar nonton bareng saat waktu luang.">
         <img src="assets/ruang-belajar.jpg" alt="Ruang belajar bersama Asrama Sa-Ijaan" loading="lazy">
         <figcaption>Ruang Belajar Bersama</figcaption>
       </figure>
-      <figure class="gallery-item">
+      <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
+        data-title="Aula & Ruang Tamu" data-img="assets/aula-ruang-tamu.jpg"
+        data-desc="Area lobi dua lantai yang jadi pusat kegiatan asrama, dipakai untuk menerima tamu, rapat pengurus, sampai kumpul bersama seluruh penghuni.">
         <img src="assets/aula-ruang-tamu.jpg" alt="Aula dan ruang tamu Asrama Sa-Ijaan" loading="lazy">
         <figcaption>Aula &amp; Ruang Tamu</figcaption>
       </figure>
-      <figure class="gallery-item">
+      <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
+        data-title="Dapur Bersama" data-placeholder="ph-4"
+        data-desc="Tempat penghuni masak dan makan bersama, sering dipakai untuk kegiatan masak-masak mingguan di asrama. Foto asli menyusul.">
         <div class="ph-photo ph-4" role="img" aria-label="Foto dapur bersama"><span>Dapur Bersama</span></div>
         <figcaption>Dapur Bersama</figcaption>
       </figure>
-      <figure class="gallery-item">
+      <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
+        data-title="Area Parkir" data-img="assets/parkir-garasi.jpg"
+        data-desc="Garasi motor di lantai bawah, di dalam kompleks asrama, jadi lebih aman dan terlindung dari hujan untuk seluruh penghuni.">
         <img src="assets/parkir-garasi.jpg" alt="Area parkir motor di dalam Asrama Sa-Ijaan" loading="lazy">
         <figcaption>Area Parkir</figcaption>
       </figure>
-      <figure class="gallery-item">
+      <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
+        data-title="Mushola" data-img="assets/mushola.jpg"
+        data-desc="Tempat shalat dan wudhu untuk penghuni, letaknya di area yang mudah dijangkau dari kamar dan ruang bersama.">
         <img src="assets/mushola.jpg" alt="Mushola Asrama Sa-Ijaan" loading="lazy">
         <figcaption>Mushola</figcaption>
       </figure>
     </div>
-    <p class="gallery-note">* Foto Dapur Bersama masih placeholder, ganti dengan foto asli di folder <code>assets/</code>.</p>
+    <p class="gallery-note">* Foto Dapur Bersama masih placeholder, ganti dengan foto asli di folder <code>assets/</code>. Klik tiap foto untuk lihat lebih besar dan penjelasannya.</p>
 
     <div class="amenities-grid">
       <div class="info-item">
@@ -617,6 +629,20 @@
 <button type="button" class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
 </button>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
+  <div class="lightbox-backdrop" data-lightbox-close></div>
+  <div class="lightbox-panel">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Tutup">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="lightbox-media" id="lightboxMedia"></div>
+    <div class="lightbox-body">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc"></p>
+    </div>
+  </div>
+</div>
 
 <script src="js/script.js"></script>
 </body>

@@ -637,9 +637,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   display: block;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+  cursor: pointer;
+}
+.ig-tile:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--color-focus-ring);
 }
 
-.ig-tile img {
+.ig-tile img,
+.ig-tile .ph-photo {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1279,6 +1285,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--color-text-muted);
   font-size: 0.95rem;
 }
+
+.lightbox-ig-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  border-bottom: 1.5px solid var(--color-accent);
+}
+.lightbox-ig-link:hover { color: var(--color-primary-light); }
 
 @media (max-width: 640px) {
   .lightbox { padding: 16px; }

@@ -97,6 +97,7 @@ const lightbox = document.getElementById('lightbox');
 const lightboxMedia = document.getElementById('lightboxMedia');
 const lightboxTitle = document.getElementById('lightboxTitle');
 const lightboxDesc = document.getElementById('lightboxDesc');
+const lightboxInstagram = document.getElementById('lightboxInstagram');
 let lastFocusedTrigger = null;
 
 function openLightbox(trigger) {
@@ -106,9 +107,17 @@ function openLightbox(trigger) {
   const placeholderClass = trigger.dataset.placeholder;
   const img2 = trigger.dataset.img2;
   const caption2 = trigger.dataset.caption2 || '';
+  const instagram = trigger.dataset.instagram;
 
   lightboxTitle.textContent = title;
   lightboxDesc.textContent = desc;
+
+  if (instagram) {
+    lightboxInstagram.href = instagram;
+    lightboxInstagram.hidden = false;
+  } else {
+    lightboxInstagram.hidden = true;
+  }
 
   if (img) {
     lightboxMedia.innerHTML = `<img src="${img}" alt="${title}">`;
@@ -134,7 +143,7 @@ function closeLightbox() {
   if (lastFocusedTrigger) lastFocusedTrigger.focus();
 }
 
-document.querySelectorAll('.gallery-item').forEach((item) => {
+document.querySelectorAll('.gallery-item, .ig-tile').forEach((item) => {
   item.addEventListener('click', () => openLightbox(item));
   item.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {

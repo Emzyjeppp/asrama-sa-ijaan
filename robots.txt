@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://asramasaijaanyk.example/sitemap.xml
+Sitemap: https://asramasaijaanyk.my.id/sitemap.xml

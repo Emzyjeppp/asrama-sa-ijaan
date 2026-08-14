@@ -443,6 +443,107 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .about-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 
+/* ============ ORG CHART (PENGURUS) ============ */
+.orgchart {
+  --org-line: var(--color-primary-light);
+  --org-gap-y: 28px;
+  --org-gap-x: 16px;
+  padding-top: 4px;
+}
+
+.org-tier {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: var(--org-gap-x);
+  position: relative;
+}
+
+.org-tier + .org-tier {
+  margin-top: var(--org-gap-y);
+  padding-top: var(--org-gap-y);
+}
+
+/* vertical trunk line connecting this tier up to the one above */
+.org-tier + .org-tier::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--org-gap-y) * -1); left: 50%;
+  width: 2px;
+  height: var(--org-gap-y);
+  background: var(--org-line);
+  transform: translateX(-50%);
+}
+
+.org-node {
+  position: relative;
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 14px 18px;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease-standard), box-shadow 0.25s var(--ease-standard);
+}
+.org-node:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.org-node-ketua {
+  min-width: 190px;
+  padding: 18px 24px;
+  background: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+.org-node-ketua .org-name { color: var(--color-white); }
+.org-node-ketua .org-role { color: var(--color-accent); }
+
+.org-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+.org-role {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* tick connecting each node up to the shared horizontal bar */
+.org-tick {
+  position: absolute;
+  top: calc(var(--org-gap-y) * -1);
+  left: 50%;
+  width: 2px;
+  height: var(--org-gap-y);
+  background: var(--org-line);
+  transform: translateX(-50%);
+}
+
+/* horizontal bar joining siblings in a branch tier — each node draws a half-width
+   segment that overlaps its neighbor's at the midpoint of the flex gap, so the
+   bar reads as one continuous line across the row */
+.org-tier-branch .org-node::before,
+.org-tier-branch .org-node::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--org-gap-y) * -1);
+  width: calc(50% + var(--org-gap-x) / 2);
+  height: 2px;
+  background: var(--org-line);
+}
+.org-tier-branch .org-node::before { right: 50%; }
+.org-tier-branch .org-node::after { left: 50%; }
+.org-tier-branch .org-node:first-child::before { background: transparent; }
+.org-tier-branch .org-node:last-child::after { background: transparent; }
+
+.org-tier-seksi .org-node { min-width: 130px; padding: 12px 14px; }
+.org-tier-seksi .org-name { font-size: 0.85rem; }
+
 .about-icon {
   width: 56px; height: 56px;
   display: flex; align-items: center; justify-content: center;
@@ -587,7 +688,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ============ TESTIMONI ============ */
 .testimoni-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
 }
 
@@ -670,6 +771,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .contact-info { display: flex; flex-direction: column; gap: 26px; }
+
+.map-embed {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  aspect-ratio: 16 / 10;
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .map-embed { aspect-ratio: 4 / 3; }
+}
 
 .info-item { display: flex; gap: 16px; align-items: flex-start; }
 .info-icon {
@@ -760,6 +879,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
+
+  .org-tier { flex-direction: column; align-items: center; flex-wrap: wrap; gap: 14px; }
+  .org-tier + .org-tier { padding-top: 20px; }
+  .org-tier + .org-tier::before { height: 20px; }
+  .org-tick { display: none; }
+  .org-tier-branch .org-node::before,
+  .org-tier-branch .org-node::after { display: none; }
+  .org-node { min-width: 220px; }
+  .org-tier-seksi .org-node { min-width: 220px; }
+
   .program-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .testimoni-grid { grid-template-columns: 1fr; }
@@ -775,7 +904,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .hero-bg {
     background:
       linear-gradient(160deg, rgba(74,11,19,0.55) 0%, rgba(122,18,32,0.45) 50%, rgba(163,34,51,0.4) 100%),
-      url("../assets/Profile.png") center 78% / cover no-repeat;
+      url("../assets/Profile.jpg") center 78% / cover no-repeat;
   }
   .hero-bg::before, .hero-bg::after { opacity: 0.45; }
   .hero-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%); }

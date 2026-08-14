@@ -18,7 +18,7 @@ navLinks.querySelectorAll('a').forEach((link) => {
 
 // ===== Scroll reveal =====
 const revealTargets = document.querySelectorAll(
-  '.about-card, .gallery-item, .schedule-card, .extracurricular-card, .testimoni-card, .contact-info, .contact-form'
+  '.about-card, .org-node, .gallery-item, .schedule-card, .extracurricular-card, .testimoni-card, .contact-info, .contact-form'
 );
 revealTargets.forEach((el) => el.classList.add('reveal'));
 
@@ -36,11 +36,19 @@ const observer = new IntersectionObserver(
 revealTargets.forEach((el) => observer.observe(el));
 
 // ===== Contact form -> WhatsApp =====
-const WHATSAPP_NUMBER = '6285754333877'; // Faqih Badalie — kontak Asrama Sa-Ijaan
+const WHATSAPP_NUMBER = '6285754333877'; // Faqih Badali — kontak Asrama Sa-Ijaan
 
 const contactForm = document.getElementById('contactForm');
+const formNote = document.getElementById('formNote');
+const formNoteDefault = formNote.innerHTML;
+
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  if (!contactForm.checkValidity()) {
+    contactForm.reportValidity();
+    return;
+  }
 
   const nama = document.getElementById('nama').value.trim();
   const telepon = document.getElementById('telepon').value.trim();
@@ -57,7 +65,13 @@ contactForm.addEventListener('submit', (e) => {
 
   const text = encodeURIComponent(lines.join('\n'));
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-  window.open(url, '_blank', 'noopener');
+  const opened = window.open(url, '_blank', 'noopener');
+
+  if (!opened || opened.closed) {
+    formNote.innerHTML = `Popup diblokir browser. <a href="${url}" target="_blank" rel="noopener">Klik di sini untuk membuka WhatsApp</a>, atau hubungi langsung di <a href="tel:+6285754333877">0857-5433-3877</a>.`;
+  } else {
+    formNote.innerHTML = formNoteDefault;
+  }
 });
 
 // ===== Footer year =====

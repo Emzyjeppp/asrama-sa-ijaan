@@ -198,6 +198,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   display: flex;
   align-items: center;
   overflow: hidden;
+  scroll-margin-top: 72px;
 }
 
 .hero-bg {
@@ -400,7 +401,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ============ SECTIONS ============ */
-.section { padding: 72px 0; }
+.section { padding: 72px 0; scroll-margin-top: 88px; }
 .section-alt { background: var(--color-bg-alt); }
 
 .section-eyebrow {
@@ -457,6 +458,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding-top: 4px;
 }
 
+.org-tier-label {
+  display: none;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 20px 0 10px;
+}
+
 .org-tier {
   display: flex;
   justify-content: center;
@@ -465,13 +477,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   position: relative;
 }
 
-.org-tier + .org-tier {
+.org-tier ~ .org-tier {
   margin-top: var(--org-gap-y);
   padding-top: var(--org-gap-y);
 }
 
 /* vertical trunk line connecting this tier up to the one above */
-.org-tier + .org-tier::before {
+.org-tier ~ .org-tier::before {
   content: '';
   position: absolute;
   top: calc(var(--org-gap-y) * -1); left: 50%;
@@ -1024,14 +1036,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
 
-  .org-tier { flex-direction: column; align-items: center; flex-wrap: wrap; gap: 14px; }
-  .org-tier + .org-tier { padding-top: 20px; }
-  .org-tier + .org-tier::before { height: 20px; }
+  .org-tier { flex-direction: column; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .org-tier ~ .org-tier { margin-top: 20px; padding-top: 0; }
+  .org-tier ~ .org-tier::before { display: none; }
   .org-tick { display: none; }
   .org-tier-branch .org-node::before,
   .org-tier-branch .org-node::after { display: none; }
   .org-node { min-width: 220px; }
   .org-tier-seksi .org-node { min-width: 220px; }
+  .org-tier-label { display: block; }
 
   .program-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }

@@ -18,7 +18,7 @@ navLinks.querySelectorAll('a').forEach((link) => {
 
 // ===== Scroll reveal =====
 const revealTargets = document.querySelectorAll(
-  '.about-card, .org-node, .gallery-item, .ig-tile, .schedule-card, .extracurricular-card, .testimoni-card, .contact-info, .contact-form'
+  '.about-card, .org-node, .gallery-item, .ig-tile, .schedule-card, .extracurricular-card, .testimoni-card, .rules-item, .contact-info, .contact-form'
 );
 revealTargets.forEach((el) => el.classList.add('reveal'));
 
@@ -76,3 +76,18 @@ contactForm.addEventListener('submit', (e) => {
 
 // ===== Footer year =====
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===== Back to top =====
+const backToTop = document.getElementById('backToTop');
+
+function toggleBackToTop() {
+  const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 200;
+  backToTop.classList.toggle('is-visible', nearBottom);
+}
+
+window.addEventListener('scroll', toggleBackToTop);
+toggleBackToTop();
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});

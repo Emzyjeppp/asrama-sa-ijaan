@@ -138,7 +138,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
 }
 
 .nav-links a:not(.nav-cta) {
@@ -428,6 +428,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ============ ABOUT ============ */
+.about-history {
+  max-width: 720px;
+  color: var(--color-text-muted);
+  margin-bottom: 40px;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -745,6 +751,88 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .requirements-grid { margin-bottom: 56px; }
 
+/* ============ TATA TERTIB ============ */
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rules-item {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.rules-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 1.02rem;
+}
+.rules-item summary::-webkit-details-marker { display: none; }
+.rules-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  transition: transform 0.2s var(--ease-standard);
+}
+.rules-item[open] summary::after { transform: rotate(45deg); }
+
+.rules-item .extra-list { margin-top: 14px; }
+.rules-item .extra-list li { padding-left: 2px; }
+
+.rules-note {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: var(--color-bg-alt);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+.rules-note strong { color: var(--color-primary); }
+
+/* ============ JARAK KAMPUS ============ */
+.campus-distance {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 48px;
+}
+.campus-distance h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.campus-list { display: flex; flex-direction: column; }
+.campus-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(122, 18, 32, 0.12);
+  font-size: 0.95rem;
+}
+.campus-list li:last-child { border-bottom: none; }
+.campus-name { font-weight: 600; color: var(--color-text); }
+.campus-dist { color: var(--color-text-muted); font-size: 0.88rem; text-align: right; flex-shrink: 0; }
+
+.campus-note {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
 /* ============ TESTIMONI ============ */
 .testimoni-grid {
   display: grid;
@@ -848,6 +936,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @media (max-width: 640px) {
   .map-embed { aspect-ratio: 4 / 3; }
+  .campus-list li { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .campus-dist { text-align: left; }
 }
 
 .info-item { display: flex; gap: 16px; align-items: flex-start; }
@@ -971,7 +1061,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .eyebrow, .hero h1, .hero-tagline { text-shadow: 0 2px 14px rgba(0,0,0,0.55); }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 860px) {
   .nav-links {
     position: absolute;
     top: 72px; left: 0; right: 0;
@@ -1020,6 +1110,40 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 640px) {
   .wa-float { right: 16px; bottom: 16px; width: 50px; height: 50px; }
   .wa-float svg { width: 26px; height: 26px; }
+}
+
+/* ============ BACK TO TOP ============ */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 88px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  z-index: 90;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-standard), transform 0.25s var(--ease-standard);
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover { background: var(--color-primary-light); }
+.back-to-top svg { width: 20px; height: 20px; }
+
+@media (max-width: 640px) {
+  .back-to-top { right: 16px; bottom: 76px; width: 40px; height: 40px; }
+  .back-to-top svg { width: 18px; height: 18px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

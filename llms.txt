@@ -4,12 +4,14 @@
 
 ## Informasi
 
+- Berdiri: diresmikan 10 Januari 2005
 - Alamat: Jl. Timoho No. 138, Demangan, Kec. Gondokusuman, Kota Yogyakarta, DI Yogyakarta 55221
 - Kontak: 0857-5433-3877 (Faqih Badali)
 - Instagram: https://www.instagram.com/asramasaijaanyk/
-- Kapasitas: 20 kamar tidur + 1 kamar tamu, saat ini dihuni 13 mahasiswa
+- Kapasitas: 19 kamar tidur (1 orang per kamar) + 1 kamar tamu, saat ini dihuni 13 mahasiswa
 - Pendaftaran: dibuka setiap hari, terutama menjelang tahun ajaran baru
+- Masa tinggal: sampai lulus kuliah, ditambah masa tenggang hingga 3 bulan setelah lulus
 
 ## Halaman
 
-- [Beranda](/index.html): berisi Tentang Kami (visi, misi, makna Sa-Ijaan), Struktur Pengurus, Fasilitas, Program & Kegiatan, Galeri, Testimoni, serta Kontak & Pendaftaran.
+- [Beranda](/index.html): berisi Tentang Kami (sejarah, visi, misi, makna Sa-Ijaan), Struktur Pengurus, Fasilitas, Program & Kegiatan, Galeri, Testimoni, Tata Tertib, serta Kontak & Pendaftaran (termasuk jarak ke kampus-kampus sekitar).

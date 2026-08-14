@@ -42,6 +42,13 @@ const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 const formNoteDefault = formNote.innerHTML;
 
+const teleponInput = document.getElementById('telepon');
+teleponInput.addEventListener('input', () => {
+  const hasPlus = teleponInput.value.startsWith('+');
+  const digits = teleponInput.value.replace(/[^0-9]/g, '');
+  teleponInput.value = hasPlus ? `+${digits}` : digits;
+});
+
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
 

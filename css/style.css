@@ -1245,8 +1245,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .lightbox-extra img {
   width: 100%;
-  max-height: 220px;
+  max-height: 320px;
   object-fit: cover;
+  object-position: top;
   border-radius: 10px;
   display: block;
 }
@@ -1273,6 +1274,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 640px) {
   .lightbox { padding: 16px; }
   .lightbox-extra { padding: 14px 18px 0; }
+  .lightbox-extra img { max-height: 240px; }
   .lightbox-body { padding: 16px 18px 20px; }
 }
 

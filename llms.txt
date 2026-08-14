@@ -1,13 +1,15 @@
 # Asrama Sa-Ijaan Yogyakarta
 
-> Asrama Mahasiswa Kabupaten Kotabaru "Sa-Ijaan" Yogyakarta adalah tempat tinggal bagi mahasiswa asal Kabupaten Kotabaru, Kalimantan Selatan, yang menempuh pendidikan tinggi di Yogyakarta. Nama "Sa-Ijaan" berasal dari motto Kabupaten Kotabaru yang berarti semufakat, satu hati, dan se-iya sekata.
+> Asrama Mahasiswa Putra Kabupaten Kotabaru "Sa-Ijaan" Yogyakarta adalah tempat tinggal khusus mahasiswa putra asal Kabupaten Kotabaru, Kalimantan Selatan, yang menempuh pendidikan tinggi di Yogyakarta. Nama "Sa-Ijaan" berasal dari motto Kabupaten Kotabaru yang berarti semufakat, satu hati, dan se-iya sekata.
 
 ## Informasi
 
 - Alamat: Jl. Timoho No. 138, Demangan, Kec. Gondokusuman, Kota Yogyakarta, DI Yogyakarta 55221
 - Kontak: 0857-5433-3877 (Faqih Badali)
 - Instagram: https://www.instagram.com/asramasaijaanyk/
+- Kapasitas: 20 kamar tidur + 1 kamar tamu, saat ini dihuni 13 mahasiswa
+- Pendaftaran: dibuka setiap hari, terutama menjelang tahun ajaran baru
 
 ## Halaman
 
-- [Beranda](/index.html): berisi Tentang Kami (visi, misi, makna Sa-Ijaan), Fasilitas, Program & Kegiatan, Testimoni, serta Kontak & Pendaftaran.
+- [Beranda](/index.html): berisi Tentang Kami (visi, misi, makna Sa-Ijaan), Struktur Pengurus, Fasilitas, Program & Kegiatan, Galeri, Testimoni, serta Kontak & Pendaftaran.

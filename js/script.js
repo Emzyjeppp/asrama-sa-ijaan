@@ -104,6 +104,8 @@ function openLightbox(trigger) {
   const desc = trigger.dataset.desc || '';
   const img = trigger.dataset.img;
   const placeholderClass = trigger.dataset.placeholder;
+  const img2 = trigger.dataset.img2;
+  const caption2 = trigger.dataset.caption2 || '';
 
   lightboxTitle.textContent = title;
   lightboxDesc.textContent = desc;
@@ -114,6 +116,10 @@ function openLightbox(trigger) {
     lightboxMedia.innerHTML = `<div class="ph-photo ${placeholderClass}"><span>${title}</span></div>`;
   } else {
     lightboxMedia.innerHTML = '';
+  }
+
+  if (img2) {
+    lightboxMedia.innerHTML += `<figure class="lightbox-extra"><img src="${img2}" alt="${caption2 || title}"><figcaption>${caption2}</figcaption></figure>`;
   }
 
   lastFocusedTrigger = trigger;

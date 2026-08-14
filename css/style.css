@@ -1194,7 +1194,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   position: relative;
   background: var(--color-white);
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   max-width: 640px;
   width: 100%;
   max-height: 90vh;
@@ -1228,16 +1229,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .lightbox-media {
   width: 100%;
-  aspect-ratio: 4 / 3;
   flex-shrink: 0;
-  overflow: hidden;
 }
-.lightbox-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lightbox-media > img,
+.lightbox-media > .ph-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
 .lightbox-media .ph-photo { font-size: 1.1rem; }
+
+.lightbox-extra {
+  padding: 16px 24px 0;
+}
+.lightbox-extra img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.lightbox-extra figcaption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
 
 .lightbox-body {
   padding: 20px 24px 24px;
-  overflow-y: auto;
 }
 .lightbox-body h3 {
   font-family: var(--font-heading);
@@ -1252,7 +1272,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @media (max-width: 640px) {
   .lightbox { padding: 16px; }
-  .lightbox-media { aspect-ratio: 4 / 3; }
+  .lightbox-extra { padding: 14px 18px 0; }
   .lightbox-body { padding: 16px 18px 20px; }
 }
 

@@ -2,3 +2,5 @@
 .DS_Store
 Thumbs.db
 assets/*.heic
+assets/*.HEIC
+assets/*.zip

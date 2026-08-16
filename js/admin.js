@@ -30,6 +30,7 @@ const pengurusRows = document.getElementById('pengurusRows');
 const pengurusError = document.getElementById('pengurusError');
 const addRowBtn = document.getElementById('addRowBtn');
 const saveBtn = document.getElementById('saveBtn');
+const saveBtnLabel = document.getElementById('saveBtnLabel');
 const logoutBtn = document.getElementById('logoutBtn');
 const saveStatus = document.getElementById('saveStatus');
 const waNomorInput = document.getElementById('waNomor');
@@ -84,7 +85,7 @@ function addPengurusRow(person) {
   const removeBtn = document.createElement('button');
   removeBtn.type = 'button';
   removeBtn.className = 'admin-row-remove';
-  removeBtn.textContent = '✕';
+  removeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>';
   removeBtn.setAttribute('aria-label', 'Hapus baris');
   removeBtn.addEventListener('click', () => tr.remove());
   removeTd.appendChild(removeBtn);
@@ -228,7 +229,7 @@ saveBtn.addEventListener('click', async () => {
   };
 
   saveBtn.disabled = true;
-  saveBtn.textContent = 'Menyimpan...';
+  saveBtnLabel.textContent = 'Menyimpan...';
 
   try {
     const res = await fetch('/api/content', {
@@ -260,7 +261,7 @@ saveBtn.addEventListener('click', async () => {
     saveStatus.hidden = false;
   } finally {
     saveBtn.disabled = false;
-    saveBtn.textContent = 'Simpan Perubahan';
+    saveBtnLabel.textContent = 'Simpan Perubahan';
   }
 });
 

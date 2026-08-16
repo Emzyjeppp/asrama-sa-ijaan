@@ -11,8 +11,20 @@
 </head>
 <body class="admin-body">
 
+<header class="admin-header">
+  <div class="admin-header-inner">
+    <a href="/" class="admin-brand">
+      <img src="assets/logo.png" alt="Logo AMKK Sa-Ijaan" class="admin-brand-logo">
+      <span>Admin Asrama Sa-Ijaan</span>
+    </a>
+    <a href="/" class="admin-back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      <span>Lihat Situs</span>
+    </a>
+  </div>
+</header>
+
 <main class="admin-shell">
-  <h1>Admin Asrama Sa-Ijaan</h1>
   <p class="admin-subtitle">Kelola struktur pengurus dan kontak pendaftaran yang tampil di situs.</p>
 
   <section id="loginView">
@@ -38,7 +50,10 @@
           <tbody id="pengurusRows"></tbody>
         </table>
       </div>
-      <button type="button" class="btn admin-btn-ghost" id="addRowBtn">+ Tambah Pengurus</button>
+      <button type="button" class="btn admin-btn-ghost" id="addRowBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        Tambah Pengurus
+      </button>
       <p id="pengurusError" class="admin-error" hidden></p>
     </div>
 
@@ -59,8 +74,14 @@
     </div>
 
     <div class="admin-actions">
-      <button type="button" class="btn btn-primary" id="saveBtn">Simpan Perubahan</button>
-      <button type="button" class="btn admin-btn-ghost" id="logoutBtn">Keluar</button>
+      <button type="button" class="btn btn-primary" id="saveBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <span id="saveBtnLabel">Simpan Perubahan</span>
+      </button>
+      <button type="button" class="btn admin-btn-ghost" id="logoutBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Keluar
+      </button>
     </div>
     <p id="saveStatus" class="admin-status" hidden></p>
     <p class="admin-note">Catatan: perubahan mungkin butuh waktu hingga 1 menit untuk tampil ke semua pengunjung.</p>

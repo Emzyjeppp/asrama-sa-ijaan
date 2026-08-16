@@ -26,17 +26,33 @@ async function hmacKey(secret) {
   );
 }
 
-export async function createSessionCookie(env) {
+// Browsers refuse to store `Secure` cookies on a plain-http origin, which
+// is exactly what `wrangler pages dev` serves on localhost. Omit `Secure`
+// only when the request is literally to localhost/127.0.0.1 so local
+// preview works; every real deployment (including *.pages.dev previews)
+// is HTTPS and keeps the Secure flag.
+function isLocalRequest(request) {
+  try {
+    const host = new URL(request.url).hostname;
+    return host === 'localhost' || host === '127.0.0.1';
+  } catch {
+    return false;
+  }
+}
+
+export async function createSessionCookie(env, request) {
   const exp = Math.floor(Date.now() / 1000) + SESSION_TTL_SECONDS;
   const payloadB64 = b64urlEncode(new TextEncoder().encode(JSON.stringify({ exp })));
   const key = await hmacKey(env.SESSION_SECRET);
   const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payloadB64));
   const token = `${payloadB64}.${b64urlEncode(new Uint8Array(sig))}`;
-  return `${COOKIE_NAME}=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=${SESSION_TTL_SECONDS}`;
+  const secureFlag = isLocalRequest(request) ? '' : ' Secure;';
+  return `${COOKIE_NAME}=${token}; Path=/; HttpOnly;${secureFlag} SameSite=Strict; Max-Age=${SESSION_TTL_SECONDS}`;
 }
 
-export function clearSessionCookie() {
-  return `${COOKIE_NAME}=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0`;
+export function clearSessionCookie(request) {
+  const secureFlag = isLocalRequest(request) ? '' : ' Secure;';
+  return `${COOKIE_NAME}=; Path=/; HttpOnly;${secureFlag} SameSite=Strict; Max-Age=0`;
 }
 
 function readCookie(request, name) {

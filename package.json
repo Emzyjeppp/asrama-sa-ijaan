@@ -1,0 +1,12 @@
+{
+  "name": "asrama-sa-ijaan",
+  "private": true,
+  "description": "Situs profil Asrama Sa-Ijaan Yogyakarta (statis) + admin panel (Cloudflare Workers).",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

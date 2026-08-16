@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "asrama-sa-ijaan",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-08-16",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "ASRAMA_KV",
+      // Replace with the real namespace id after creating it:
+      //   npx wrangler kv namespace create ASRAMA_KV
+      // (or Workers & Pages -> KV -> Create a namespace in the dashboard,
+      // then copy the id shown there into this field).
+      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+    }
+  ]
+}

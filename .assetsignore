@@ -1,0 +1,16 @@
+.git
+.github
+.claude
+.wrangler
+node_modules
+functions
+worker
+wrangler.jsonc
+package.json
+package-lock.json
+.gitignore
+.assetsignore
+.dev.vars
+README.md
+llms.txt
+*.pdf

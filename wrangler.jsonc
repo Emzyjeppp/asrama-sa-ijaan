@@ -11,11 +11,7 @@
   "kv_namespaces": [
     {
       "binding": "ASRAMA_KV",
-      // Replace with the real namespace id after creating it:
-      //   npx wrangler kv namespace create ASRAMA_KV
-      // (or Workers & Pages -> KV -> Create a namespace in the dashboard,
-      // then copy the id shown there into this field).
-      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+      "id": "1b700a0bd66a42eda612184a5e5465f8"
     }
   ]
 }

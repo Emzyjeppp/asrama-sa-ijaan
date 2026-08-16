@@ -36,11 +36,12 @@ const observer = new IntersectionObserver(
 revealTargets.forEach((el) => observer.observe(el));
 
 // ===== Contact form -> WhatsApp =====
-const WHATSAPP_NUMBER = '6285754333877'; // Faqih Badali — kontak Asrama Sa-Ijaan
+let WHATSAPP_NUMBER = '6285754333877'; // Faqih Badali — kontak Asrama Sa-Ijaan
+let WHATSAPP_DISPLAY = '0857-5433-3877';
 
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
-const formNoteDefault = formNote.innerHTML;
+let formNoteDefault = formNote.innerHTML;
 
 const teleponInput = document.getElementById('telepon');
 teleponInput.addEventListener('input', () => {
@@ -75,7 +76,7 @@ contactForm.addEventListener('submit', (e) => {
   const opened = window.open(url, '_blank', 'noopener');
 
   if (!opened || opened.closed) {
-    formNote.innerHTML = `Popup diblokir browser. <a href="${url}" target="_blank" rel="noopener">Klik di sini untuk membuka WhatsApp</a>, atau hubungi langsung di <a href="tel:+6285754333877">0857-5433-3877</a>.`;
+    formNote.innerHTML = `Popup diblokir browser. <a href="${url}" target="_blank" rel="noopener">Klik di sini untuk membuka WhatsApp</a>, atau hubungi langsung di <a href="tel:+${WHATSAPP_NUMBER}">${WHATSAPP_DISPLAY}</a>.`;
   } else {
     formNote.innerHTML = formNoteDefault;
   }
@@ -187,3 +188,96 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+// ===== Dynamic content override (org chart + WhatsApp contact) =====
+// Progressive enhancement only: the HTML above already has full static
+// fallback content baked in. If GET /api/content returns valid data we
+// overwrite it in place; on any failure (404 during GitHub Pages migration,
+// network error, empty KV) we silently keep the hard-coded fallback —
+// nothing on the page breaks either way.
+
+function buildOrgChartHTML(pengurus) {
+  const ketua = pengurus.find((p) => p.tier === 'ketua');
+  if (!ketua) return null; // malformed payload, bail and keep fallback
+
+  const wrap = document.createElement('div');
+
+  const topTier = document.createElement('div');
+  topTier.className = 'org-tier org-tier-top';
+  const ketuaNode = document.createElement('div');
+  ketuaNode.className = 'org-node org-node-ketua';
+  ketuaNode.innerHTML = '<p class="org-name"></p><span class="org-role"></span>';
+  ketuaNode.querySelector('.org-name').textContent = ketua.nama;
+  ketuaNode.querySelector('.org-role').textContent = ketua.jabatan;
+  topTier.appendChild(ketuaNode);
+  wrap.appendChild(topTier);
+
+  function branch(label, items, extraClass) {
+    if (!items.length) return; // omit empty tier rather than render broken connectors
+
+    const labelEl = document.createElement('p');
+    labelEl.className = 'org-tier-label';
+    labelEl.textContent = label;
+    wrap.appendChild(labelEl);
+
+    const tier = document.createElement('div');
+    tier.className = 'org-tier org-tier-branch' + (extraClass ? ' ' + extraClass : '');
+    items.forEach((item) => {
+      const n = document.createElement('div');
+      n.className = 'org-node';
+      n.innerHTML = '<span class="org-tick" aria-hidden="true"></span><p class="org-name"></p><span class="org-role"></span>';
+      n.querySelector('.org-name').textContent = item.nama;
+      n.querySelector('.org-role').textContent = item.jabatan;
+      tier.appendChild(n);
+    });
+    wrap.appendChild(tier);
+  }
+
+  branch('Inti Pengurus', pengurus.filter((p) => p.tier === 'inti'));
+  branch('Koordinator Seksi', pengurus.filter((p) => p.tier === 'seksi'), 'org-tier-seksi');
+
+  return wrap.innerHTML;
+}
+
+function applyContentOverride(data) {
+  if (Array.isArray(data.pengurus)) {
+    const orgchart = document.getElementById('orgchart');
+    const html = buildOrgChartHTML(data.pengurus);
+    if (orgchart && html) orgchart.innerHTML = html;
+  }
+
+  if (data.kontak) {
+    const { whatsapp_nomor, whatsapp_tampil, kontak_nama } = data.kontak;
+    if (whatsapp_nomor) WHATSAPP_NUMBER = whatsapp_nomor;
+    if (whatsapp_tampil) WHATSAPP_DISPLAY = whatsapp_tampil;
+
+    const kontakWaText = document.getElementById('kontakWaText');
+    if (kontakWaText && whatsapp_tampil) {
+      kontakWaText.textContent = kontak_nama ? `${whatsapp_tampil} (${kontak_nama})` : whatsapp_tampil;
+    }
+
+    const waFloat = document.getElementById('waFloat');
+    if (waFloat && whatsapp_nomor) {
+      const text = encodeURIComponent('Halo, saya ingin bertanya tentang Asrama Sa-Ijaan Yogyakarta.');
+      waFloat.href = `https://wa.me/${whatsapp_nomor}?text=${text}`;
+    }
+
+    const formNoteTelLink = document.getElementById('formNoteTelLink');
+    if (formNoteTelLink && whatsapp_nomor && whatsapp_tampil) {
+      formNoteTelLink.href = `tel:+${whatsapp_nomor}`;
+      formNoteTelLink.textContent = whatsapp_tampil;
+      // Re-capture so the "popup blocked, call us at ___" fallback
+      // (submit handler above) also reflects the new number.
+      formNoteDefault = formNote.innerHTML;
+    }
+  }
+}
+
+fetch('/api/content')
+  .then((res) => (res.ok ? res.json() : null))
+  .then((res) => {
+    if (res && res.ok && res.data) applyContentOverride(res.data);
+  })
+  .catch(() => {
+    /* GitHub Pages during migration, network error, or empty KV: keep static fallback */
+  });

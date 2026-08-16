@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Asrama Sa-Ijaan</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+<main class="admin-shell">
+  <h1>Admin Asrama Sa-Ijaan</h1>
+  <p class="admin-subtitle">Kelola struktur pengurus dan kontak pendaftaran yang tampil di situs.</p>
+
+  <section id="loginView">
+    <form id="loginForm" class="admin-card">
+      <div class="form-row">
+        <label for="password">Password Admin</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary">Masuk</button>
+      <p id="loginError" class="admin-error" hidden></p>
+    </form>
+  </section>
+
+  <section id="editorView" hidden>
+    <div class="admin-card">
+      <h2>Struktur Pengurus</h2>
+      <p class="admin-hint">Harus ada tepat 1 orang dengan jabatan tier "Ketua". Pilih Ketua baru otomatis menurunkan Ketua lama ke Inti Pengurus.</p>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="pengurusTable">
+          <thead>
+            <tr><th>Nama</th><th>Jabatan</th><th>Tier</th><th></th></tr>
+          </thead>
+          <tbody id="pengurusRows"></tbody>
+        </table>
+      </div>
+      <button type="button" class="btn admin-btn-ghost" id="addRowBtn">+ Tambah Pengurus</button>
+      <p id="pengurusError" class="admin-error" hidden></p>
+    </div>
+
+    <div class="admin-card">
+      <h2>Kontak WhatsApp Pendaftaran</h2>
+      <div class="form-row">
+        <label for="waNomor">Nomor WhatsApp (format 62xxxxxxxxxx, tanpa + atau 0 di depan)</label>
+        <input type="text" id="waNomor" inputmode="numeric" pattern="^62\d{8,13}$" required>
+      </div>
+      <div class="form-row">
+        <label for="waTampil">Nomor tampilan (format 08xx-xxxx-xxxx)</label>
+        <input type="text" id="waTampil" required>
+      </div>
+      <div class="form-row">
+        <label for="kontakNama">Nama kontak</label>
+        <input type="text" id="kontakNama" required>
+      </div>
+    </div>
+
+    <div class="admin-actions">
+      <button type="button" class="btn btn-primary" id="saveBtn">Simpan Perubahan</button>
+      <button type="button" class="btn admin-btn-ghost" id="logoutBtn">Keluar</button>
+    </div>
+    <p id="saveStatus" class="admin-status" hidden></p>
+    <p class="admin-note">Catatan: perubahan mungkin butuh waktu hingga 1 menit untuk tampil ke semua pengunjung.</p>
+  </section>
+</main>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

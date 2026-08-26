@@ -31,12 +31,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "LodgingBusiness",
   "name": "Asrama Mahasiswa Kabupaten Kotabaru \"Sa-Ijaan\" Yogyakarta",
   "alternateName": "Asrama Sa-Ijaan",
   "logo": "https://asramasaijaanyk.my.id/assets/logo.png",
   "image": "https://asramasaijaanyk.my.id/assets/logo.png",
   "telephone": "+62-857-5433-3877",
+  "priceRange": "Rp100.000/bulan",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Jl. Timoho No. 138, Demangan",
@@ -45,12 +46,63 @@
     "postalCode": "55221",
     "addressCountry": "ID"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -7.7878664,
+    "longitude": 110.3949476
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "08:00",
+    "closes": "17:00"
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
     "reviewCount": "15"
   },
   "sameAs": ["https://www.instagram.com/asramasaijaanyk/"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Siapa yang boleh mendaftar di Asrama Sa-Ijaan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mahasiswa putra yang lahir di Kabupaten Kotabaru sesuai KTP, memiliki KTP dengan domisili Kabupaten Kotabaru, dan berstatus mahasiswa aktif, diutamakan jenjang D3, S1, atau S2."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Berapa biaya tinggal di Asrama Sa-Ijaan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uang pangkal Rp500.000 (sekali di awal masuk) dan iuran kamar Rp100.000 per bulan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Berapa lama mahasiswa boleh tinggal di asrama?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Penghuni boleh menetap selama masih berstatus mahasiswa aktif sampai lulus kuliah, lalu diberi waktu tambahan hingga 3 bulan setelah lulus untuk bersiap pindah."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bagaimana cara mendaftar di Asrama Sa-Ijaan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Isi formulir pendaftaran di website atau hubungi pengurus langsung via WhatsApp, lalu tim asrama akan memverifikasi syarat (KTP domisili dan status mahasiswa aktif) sebelum konfirmasi penempatan kamar."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -62,7 +114,7 @@
 <header class="navbar" id="navbar">
   <div class="container navbar-inner">
     <a href="#hero" class="brand">
-      <img src="assets/logo.png" alt="Logo AMKK Sa-Ijaan" class="brand-logo">
+      <img src="assets/logo.png" alt="Logo AMKK Sa-Ijaan" class="brand-logo" width="512" height="512">
       <span class="brand-name">Asrama Sa-Ijaan</span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -99,7 +151,7 @@
     <div class="hero-photo">
       <figure class="hero-photo-card">
         <div class="hero-photo-frame">
-          <img src="assets/Profile.jpg" alt="Gedung Asrama Sa-Ijaan Yogyakarta tampak depan" loading="eager">
+          <img src="assets/Profile.jpg" alt="Gedung Asrama Sa-Ijaan Yogyakarta tampak depan" loading="eager" width="1000" height="1774">
         </div>
         <span class="hero-rating-badge">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6Z"/></svg>
@@ -192,7 +244,7 @@
         </div>
         <div class="org-node">
           <span class="org-tick" aria-hidden="true"></span>
-          <p class="org-name">Muhammad Najwan Raditama</p>
+          <p class="org-name">Alven</p>
           <span class="org-role">Kebersihan</span>
         </div>
         <div class="org-node">
@@ -226,39 +278,39 @@
       <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Kamar Tidur" data-img="assets/kamar-tidur.jpg"
         data-desc="19 kamar tidur, masing-masing untuk 1 orang, ditambah 1 kamar tamu. Koridor kamar ada di lantai atas, terhubung langsung ke tangga menuju aula dan ruang bersama di lantai bawah.">
-        <img src="assets/kamar-tidur.jpg" alt="Koridor kamar tidur Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/kamar-tidur.jpg" alt="Koridor kamar tidur Asrama Sa-Ijaan" loading="lazy" width="1280" height="960">
         <figcaption>Kamar Tidur</figcaption>
       </figure>
       <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Ruang Belajar Bersama" data-img="assets/ruang-belajar.jpg"
         data-desc="Ruang santai dengan sofa, meja komputer, dan Smart TV. Dipakai penghuni untuk mengerjakan tugas kuliah bersama atau sekadar nonton bareng saat waktu luang.">
-        <img src="assets/ruang-belajar.jpg" alt="Ruang belajar bersama Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/ruang-belajar.jpg" alt="Ruang belajar bersama Asrama Sa-Ijaan" loading="lazy" width="1280" height="960">
         <figcaption>Ruang Belajar Bersama</figcaption>
       </figure>
       <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Aula & Ruang Tamu" data-img="assets/aula-ruang-tamu.jpg"
         data-desc="Area lobi dua lantai yang jadi pusat kegiatan asrama, dipakai untuk menerima tamu, rapat pengurus, sampai kumpul bersama seluruh penghuni.">
-        <img src="assets/aula-ruang-tamu.jpg" alt="Aula dan ruang tamu Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/aula-ruang-tamu.jpg" alt="Aula dan ruang tamu Asrama Sa-Ijaan" loading="lazy" width="1280" height="960">
         <figcaption>Aula &amp; Ruang Tamu</figcaption>
       </figure>
       <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Dapur Bersama" data-img="assets/dapur-meja-makan.jpg"
         data-img2="assets/dapur-bersama.jpg" data-caption2="Bagian dalam dapur"
         data-desc="Tempat penghuni masak dan makan bersama, sering dipakai untuk kegiatan masak-masak mingguan di asrama.">
-        <img src="assets/dapur-meja-makan.jpg" alt="Meja makan bersama Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/dapur-meja-makan.jpg" alt="Meja makan bersama Asrama Sa-Ijaan" loading="lazy" width="1280" height="960">
         <figcaption>Dapur Bersama</figcaption>
       </figure>
       <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Area Parkir" data-img="assets/parkir-garasi.jpg"
         data-img2="assets/parkir-halaman.jpg" data-caption2="Halaman depan asrama"
         data-desc="Garasi motor di lantai bawah, di dalam kompleks asrama, jadi lebih aman dan terlindung dari hujan untuk seluruh penghuni.">
-        <img src="assets/parkir-garasi.jpg" alt="Area parkir motor di dalam Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/parkir-garasi.jpg" alt="Area parkir motor di dalam Asrama Sa-Ijaan" loading="lazy" width="1280" height="960">
         <figcaption>Area Parkir</figcaption>
       </figure>
       <figure class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Mushola" data-img="assets/mushola.jpg"
         data-desc="Tempat shalat dan wudhu untuk penghuni, letaknya di area yang mudah dijangkau dari kamar dan ruang bersama.">
-        <img src="assets/mushola.jpg" alt="Mushola Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/mushola.jpg" alt="Mushola Asrama Sa-Ijaan" loading="lazy" width="1280" height="960">
         <figcaption>Mushola</figcaption>
       </figure>
     </div>
@@ -359,14 +411,14 @@
         data-title="Bulu Tangkis" data-img="assets/bulu-tangkis.jpg"
         data-instagram="https://www.instagram.com/p/C9ZhKj_vWfE/?img_index=1"
         data-desc="Main bulu tangkis rutin tiap minggu di Depok Sports Center, Sleman.">
-        <img src="assets/bulu-tangkis.jpg" alt="Bulu tangkis bersama penghuni Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/bulu-tangkis.jpg" alt="Bulu tangkis bersama penghuni Asrama Sa-Ijaan" loading="lazy" width="1080" height="810">
         <span class="ig-tile-label">Bulu Tangkis</span>
         <span class="ig-tile-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg><span>Lihat Foto</span></span>
       </figure>
       <figure class="ig-tile" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Futsal Bersama" data-img="assets/futsal-bersama.jpg"
         data-desc="Futsal bersama penghuni, kadang berkolaborasi dengan asrama mahasiswa daerah lain.">
-        <img src="assets/futsal-bersama.jpg" alt="Futsal bersama penghuni Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/futsal-bersama.jpg" alt="Futsal bersama penghuni Asrama Sa-Ijaan" loading="lazy" width="720" height="1280">
         <span class="ig-tile-label">Futsal Bersama</span>
         <span class="ig-tile-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg><span>Lihat Foto</span></span>
       </figure>
@@ -374,7 +426,7 @@
         data-title="Berenang" data-img="assets/berenang.jpg"
         data-instagram="https://www.instagram.com/p/CXX5QXzLcZW/?img_index=1"
         data-desc="Berenang bareng di Kolam Renang FIK UNY.">
-        <img src="assets/berenang.jpg" alt="Berenang bersama penghuni Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/berenang.jpg" alt="Berenang bersama penghuni Asrama Sa-Ijaan" loading="lazy" width="1000" height="1336">
         <span class="ig-tile-label">Berenang</span>
         <span class="ig-tile-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg><span>Lihat Foto</span></span>
       </figure>
@@ -389,14 +441,14 @@
         data-title="Masak Bersama" data-img="assets/masak-bersama.jpg"
         data-img2="assets/masak-bersama-2.jpg" data-caption2="Menu masakan hari itu"
         data-desc="Masak dan makan bersama di asrama, salah satu kegiatan mingguan favorit penghuni.">
-        <img src="assets/masak-bersama.jpg" alt="Masak bersama penghuni Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/masak-bersama.jpg" alt="Masak bersama penghuni Asrama Sa-Ijaan" loading="lazy" width="1080" height="608">
         <span class="ig-tile-label">Masak Bersama</span>
         <span class="ig-tile-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg><span>Lihat Foto</span></span>
       </figure>
       <figure class="ig-tile" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Bajalanan Asrama" data-img="assets/bajalanan-asrama.jpg"
         data-desc="Kuliner dan jalan-jalan keliling Yogyakarta bareng penghuni asrama.">
-        <img src="assets/bajalanan-asrama.jpg" alt="Bajalanan Asrama, kuliner dan jalan-jalan bersama" loading="lazy">
+        <img src="assets/bajalanan-asrama.jpg" alt="Bajalanan Asrama, kuliner dan jalan-jalan bersama" loading="lazy" width="1080" height="1440">
         <span class="ig-tile-label">Bajalanan Asrama</span>
         <span class="ig-tile-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg><span>Lihat Foto</span></span>
       </figure>
@@ -410,14 +462,14 @@
       <figure class="ig-tile" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Buka Puasa Bersama" data-img="assets/buka-puasa-bersama.jpg"
         data-desc="Buka puasa bersama penghuni asrama selama bulan Ramadhan.">
-        <img src="assets/buka-puasa-bersama.jpg" alt="Buka puasa bersama penghuni Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/buka-puasa-bersama.jpg" alt="Buka puasa bersama penghuni Asrama Sa-Ijaan" loading="lazy" width="1080" height="810">
         <span class="ig-tile-label">Buka Puasa Bersama</span>
         <span class="ig-tile-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg><span>Lihat Foto</span></span>
       </figure>
       <figure class="ig-tile" tabindex="0" role="button" aria-haspopup="dialog"
         data-title="Idul Adha" data-img="assets/idul-adha.jpg"
         data-desc="Perayaan Idul Adha bersama penghuni asrama.">
-        <img src="assets/idul-adha.jpg" alt="Perayaan Idul Adha bersama penghuni Asrama Sa-Ijaan" loading="lazy">
+        <img src="assets/idul-adha.jpg" alt="Perayaan Idul Adha bersama penghuni Asrama Sa-Ijaan" loading="lazy" width="800" height="1422">
         <span class="ig-tile-label">Idul Adha</span>
         <span class="ig-tile-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M20 14v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg><span>Lihat Foto</span></span>
       </figure>
@@ -495,13 +547,13 @@
     <div class="campus-distance">
       <h3>Jarak ke Kampus Sekitar</h3>
       <ul class="campus-list">
-        <li><img class="campus-logo" src="assets/logo-uin-suka.png" alt="Logo UIN Sunan Kalijaga" loading="lazy"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=UIN+Sunan+Kalijaga+Yogyakarta" target="_blank" rel="noopener">UIN Sunan Kalijaga</a><span class="campus-dist">500 m&ndash;1 km, jalan kaki 5&ndash;10 menit</span></li>
-        <li><img class="campus-logo" src="assets/logo-lpp.png" alt="Logo Politeknik LPP Yogyakarta" loading="lazy"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Politeknik+LPP+Yogyakarta" target="_blank" rel="noopener">Politeknik LPP Yogyakarta</a><span class="campus-dist">&plusmn;1 km, berkendara 3 menit</span></li>
-        <li><img class="campus-logo" src="assets/logo-ukdw.png" alt="Logo Universitas Kristen Duta Wacana" loading="lazy"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Kristen+Duta+Wacana+Yogyakarta" target="_blank" rel="noopener">Universitas Kristen Duta Wacana (UKDW)</a><span class="campus-dist">&plusmn;1,8 km, berkendara 5 menit</span></li>
-        <li><img class="campus-logo" src="assets/logo-uny.svg" alt="Logo Universitas Negeri Yogyakarta" loading="lazy"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Negeri+Yogyakarta" target="_blank" rel="noopener">Universitas Negeri Yogyakarta (UNY)</a><span class="campus-dist">&plusmn;2,5 km, berkendara 7&ndash;10 menit</span></li>
-        <li><img class="campus-logo" src="assets/logo-uajy.png" alt="Logo Universitas Atma Jaya Yogyakarta" loading="lazy"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Atma+Jaya+Yogyakarta+Kampus+Babarsari" target="_blank" rel="noopener">Universitas Atma Jaya Yogyakarta, Kampus Babarsari</a><span class="campus-dist">&plusmn;3,1 km, berkendara 9 menit</span></li>
-        <li><img class="campus-logo" src="assets/logo-ugm.png" alt="Logo Universitas Gadjah Mada" loading="lazy"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Gadjah+Mada+Yogyakarta" target="_blank" rel="noopener">Universitas Gadjah Mada (UGM)</a><span class="campus-dist">&plusmn;3,5 km, berkendara 12&ndash;17 menit</span></li>
-        <li><img class="campus-logo" src="assets/logo-upn.png" alt="Logo UPN Veteran Yogyakarta" loading="lazy"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=UPN+Veteran+Yogyakarta+Kampus+Condongcatur" target="_blank" rel="noopener">UPN "Veteran" Yogyakarta, Kampus Condongcatur</a><span class="campus-dist">&plusmn;4,5 km, berkendara 12&ndash;15 menit</span></li>
+        <li><img class="campus-logo" src="assets/logo-uin-suka.png" alt="Logo UIN Sunan Kalijaga" loading="lazy" width="128" height="128"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=UIN+Sunan+Kalijaga+Yogyakarta" target="_blank" rel="noopener">UIN Sunan Kalijaga</a><span class="campus-dist">500 m&ndash;1 km, jalan kaki 5&ndash;10 menit</span></li>
+        <li><img class="campus-logo" src="assets/logo-lpp.png" alt="Logo Politeknik LPP Yogyakarta" loading="lazy" width="128" height="128"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Politeknik+LPP+Yogyakarta" target="_blank" rel="noopener">Politeknik LPP Yogyakarta</a><span class="campus-dist">&plusmn;1 km, berkendara 3 menit</span></li>
+        <li><img class="campus-logo" src="assets/logo-ukdw.png" alt="Logo Universitas Kristen Duta Wacana" loading="lazy" width="128" height="128"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Kristen+Duta+Wacana+Yogyakarta" target="_blank" rel="noopener">Universitas Kristen Duta Wacana (UKDW)</a><span class="campus-dist">&plusmn;1,8 km, berkendara 5 menit</span></li>
+        <li><img class="campus-logo" src="assets/logo-uny.svg" alt="Logo Universitas Negeri Yogyakarta" loading="lazy" width="128" height="131"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Negeri+Yogyakarta" target="_blank" rel="noopener">Universitas Negeri Yogyakarta (UNY)</a><span class="campus-dist">&plusmn;2,5 km, berkendara 7&ndash;10 menit</span></li>
+        <li><img class="campus-logo" src="assets/logo-uajy.png" alt="Logo Universitas Atma Jaya Yogyakarta" loading="lazy" width="128" height="128"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Atma+Jaya+Yogyakarta+Kampus+Babarsari" target="_blank" rel="noopener">Universitas Atma Jaya Yogyakarta, Kampus Babarsari</a><span class="campus-dist">&plusmn;3,1 km, berkendara 9 menit</span></li>
+        <li><img class="campus-logo" src="assets/logo-ugm.png" alt="Logo Universitas Gadjah Mada" loading="lazy" width="128" height="128"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Gadjah+Mada+Yogyakarta" target="_blank" rel="noopener">Universitas Gadjah Mada (UGM)</a><span class="campus-dist">&plusmn;3,5 km, berkendara 12&ndash;17 menit</span></li>
+        <li><img class="campus-logo" src="assets/logo-upn.png" alt="Logo UPN Veteran Yogyakarta" loading="lazy" width="128" height="128"><a class="campus-name" href="https://www.google.com/maps/search/?api=1&amp;query=UPN+Veteran+Yogyakarta+Kampus+Condongcatur" target="_blank" rel="noopener">UPN "Veteran" Yogyakarta, Kampus Condongcatur</a><span class="campus-dist">&plusmn;4,5 km, berkendara 12&ndash;15 menit</span></li>
       </ul>
       <p class="campus-note">* Estimasi jarak dan waktu tempuh berkendara motor atau mobil, dapat berubah tergantung kondisi lalu lintas.</p>
     </div>
@@ -599,7 +651,7 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <img src="assets/logo.png" alt="Logo AMKK Sa-Ijaan" class="brand-logo">
+      <img src="assets/logo.png" alt="Logo AMKK Sa-Ijaan" class="brand-logo" width="512" height="512">
       <span class="brand-name">Asrama Sa-Ijaan Yogyakarta</span>
     </div>
     <p>&copy; <span id="year"></span> Asrama Mahasiswa Kabupaten Kotabaru "Sa-Ijaan" Yogyakarta.</p>

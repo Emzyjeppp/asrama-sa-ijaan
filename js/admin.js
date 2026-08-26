@@ -8,7 +8,7 @@ const SEED_DATA = {
     { nama: 'Ahmad Rivaldi', jabatan: 'Bendahara', tier: 'inti' },
     { nama: 'Mohammad Faqih Badali', jabatan: 'Humas', tier: 'seksi' },
     { nama: 'Noor Awaliansyah', jabatan: 'Keamanan', tier: 'seksi' },
-    { nama: 'Muhammad Najwan Raditama', jabatan: 'Kebersihan', tier: 'seksi' },
+    { nama: 'Alven', jabatan: 'Kebersihan', tier: 'seksi' },
     { nama: 'Riqqy Fajar Maulana', jabatan: 'Perlengkapan', tier: 'seksi' },
     { nama: 'Syaikhu Basyar Suyoko', jabatan: 'Keagamaan', tier: 'seksi' },
     { nama: 'Ubaidillah', jabatan: 'Kesra', tier: 'seksi' },
